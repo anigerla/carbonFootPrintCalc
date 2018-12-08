@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+//WelcomeScreen Component Styling Starts
+.ancestorContainer, .componentParent {
+    & /* Style the video: 100% width and height to cover the entire window */
+    #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+}
+    & h1 {
+        text-align: center;
+        // margin-top: 0;
+    }
+}
+
+.leftRightDivHolder {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftDiv, .rightDiv {
+    width: 50%;
+    height: 85vh;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+
+.leftDiv h2, .rightDiv h2 {
+    display: none;
+    font-size: 32px;
+    color: gold;
+}
+
+.leftDiv a, .rightDiv a {
+    text-decoration: none;
+}
+
+.leftDiv:hover, .rightDiv:hover {
+    background-color: rgba(250, 250, 250, 0.5);
+    cursor: pointer;
+}
+
+.leftDiv:hover h2, .rightDiv:hover h2 {
+    display: block;
+}
+
+// .k-button {
+//     height: 30px;
+// }
+//WelcomeScreen Component Styling Ends
+
+//Meat & Travel Components Styling Starts
+.componentParent     {
+    display: flex;
+    justify-content: center;
+
+    & .formParent, form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        & .formChild {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            & input {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+            }
+        }
+    
+        & .sbmtBtn {
+            background: rgb(18, 16, 25);
+            color: rgb(255, 255, 255);
+            padding: 1.5rem 3rem;
+            border: 0px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    }
+
+}
+

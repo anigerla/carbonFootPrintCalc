@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+.ancestorContainer #myVideo, .componentParent #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.ancestorContainer h1, .componentParent h1 {
+  text-align: center;
+}
+
+.leftRightDivHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.leftDiv, .rightDiv {
+  width: 50%;
+  height: 85vh;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.leftDiv h2, .rightDiv h2 {
+  display: none;
+  font-size: 32px;
+  color: gold;
+}
+
+.leftDiv a, .rightDiv a {
+  text-decoration: none;
+}
+
+.leftDiv:hover, .rightDiv:hover {
+  background-color: rgba(250, 250, 250, 0.5);
+  cursor: pointer;
+}
+
+.leftDiv:hover h2, .rightDiv:hover h2 {
+  display: block;
+}
+
+.componentParent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.componentParent .formParent, .componentParent form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.componentParent .formParent .formChild, .componentParent form .formChild {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.componentParent .formParent .formChild input, .componentParent form .formChild input {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.componentParent .formParent .sbmtBtn, .componentParent form .sbmtBtn {
+  background: #121019;
+  color: white;
+  padding: 1.5rem 3rem;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=App.css.map */
