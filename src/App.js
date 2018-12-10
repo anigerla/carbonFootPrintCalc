@@ -4,21 +4,25 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Travel from './components/Travel';
 import Meat from './components/Meat';
 import WelcomeScreen from './components/WelcomeScreen';
-import Navbar from './components/NavBar';
+import NavBar from './components/NavBar';
+import MeatCalculations from './components/MeatCalculations';
 
 class App extends Component {
-  state = {
-    flightData: {
-      decisions: {
-        carbon: {
-          description: { }
-        }
-      }
-    },
-    meatData: []
-  }
+  // state = {
+  //   flightData: {
+  //     decisions: {
+  //       carbon: {
+  //         description: { }
+  //       }
+  //     }
+  //   },
+  //   meatData: [
+  //    { 
+  //      grams_co2e_per_serving: 
+  //    }
+  //   ]
+  // }
 
-  // componentDidMount
   // onSubmit collects input data
   // commSubmit = (e) => {
   //   e.preventDefault();
@@ -29,45 +33,54 @@ class App extends Component {
   //   this.submitHandler(uInput);
   // }
 
-  sendTravelInfo(uInput) {
-    //new object created that stores the user inputs
-    let userInput = {
-      departure: uInput,
-      // destination: uInput2
+  // sendTravelInfo(uInput) {
+  //   //new object created that stores the user inputs
+  //   let userInput = {
+  //     departure: uInput,
+  //     destination: uInput2
+  //   }
 
-      // fetch(`http://localhost:8080/travel/`, init)
-      //   .then()
-    }
+  //     const init = {
+  //       body: JSON.stringify(userInput),
+  //       method: 'POST',
+  //       headers: {
+  //         'content-type': 'application/json'
+  //       }
+  //     };
+
+  //     fetch(`http://localhost:8080/travel/:id`, init)
+  //     .then((response) => {
+  //     return response.json();
+  //   })
+  //     .then((data) => {
+  //       this.setState(data);
+  //       console.log(data)
+  //     })
+  //   }
 
     //fetch GET request is sent off to the local server
       //amend fetch to a more specific request???
-    fetch(`http://localhost:8080/travel/`)
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        return data;
-      })
-  }
-
-    // fetch for the travel data
-
-    //submitted parameters are entered into fetch url to ask API
-    //for relevant information
-    //response gets formatted and displayed on the screen
-    // fetch for the meat consumption data
+    // fetch(`http://localhost:8080/travel/`)
+    //   .then((response) => {
+    //     return response.text();
+    //   })
+    //   .then((data) => {
+    //     this.setState(data);
+    //     console.log(data)
+    //   })
+  // }
 
   render() {
     return (
       <Router>
         <div className="App">
-          {/* <NavBar /> */}
-          {/* <WelcomeScreen /> */}
+          <NavBar />
           <Switch>
-            <Route path='/travel' exact component={Travel}></Route>
-            <Route path='/meat' exact component={Meat}></Route>
+            <Route path='/travel' exact component = { Travel } />
+            <Route path='/meat' exact component={Meat} />
             <Route path='/welcome' exact component={WelcomeScreen} />
             <Route path='/' exact render={() => <Redirect to='/welcome' component={WelcomeScreen} />} />
+            <Route path='/meatresults' exact component={MeatCalculations} />
           </Switch>
         </div>
       </Router>

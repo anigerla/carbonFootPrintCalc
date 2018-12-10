@@ -24,31 +24,46 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
-    //Body Parser code ends
- //middleware functions end
- //----------------------------------------------------------------------------------------------------
- //Outside API requests
- //AXIOS GET request that receives CO2 data based on meat consumption
-axios.get('URL')
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+//Body Parser code ends
+//middleware functions end
+//----------------------------------------------------------------------------------------------------
+//Outside API requests
+//AXIOS GET request that receives CO2 data based on meat consumption
+const meat_API = `https://opendata.socrata.com/resource/8nz9-yn2p.json`;
+// axios.get('URL')
+//     .then(function (response) {
+//         console.log(response);
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     });
 
 //AXIOS GET request that receives CO2 data based on flight distance
-axios.get('http://impact.brighterplanet.com/flights.json?origin_airport=Toronto&destination_airport=Shanghai&timeframe=2018-01-01%2F2019-01-01')
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-
+// let axiosRes = axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${uInput}&destination_airport=${uInput2}&timeframe=2018-01-01%2F2019-01-01`)
+//     .then(response => {
+//         res.json();
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     });
 
 //Internal fetch requests
 // let toInput, fromInput;
+
+app.post('/travel/:origin/:destination', (req, res) => {
+    const userOrigin = req.params.origin;
+    const userArrival = req.params.destination;
+
+    //divide userInput into departure and destination
+   axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
+        .then(response => {
+            res.json(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
+})
 
 // app.post('/travel', (req, res) => {
 //     toInput = req.body.toInput;

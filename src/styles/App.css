@@ -1,6 +1,56 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: 'Oswald', sans-serif;
+}
+
+.navBarGrandParent {
+  margin: 0 5rem;
+}
+
+.navBarGrandParent a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navBarGrandParent a h1 {
+  margin-bottom: 0;
+}
+
+.navBarGrandParent a:hover {
+  color: white;
+}
+
+.navBarGrandParent .navBarChild {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBarGrandParent .navBarChild ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  font-size: 24px;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.navBarGrandParent .navBarChild ul a {
+  color: white;
+  padding: 1rem;
+}
+
+.navBarGrandParent .navBarChild ul a:hover {
+  color: black;
 }
 
 .ancestorContainer #myVideo, .componentParent #myVideo {
@@ -14,6 +64,10 @@ body {
 
 .ancestorContainer h1, .componentParent h1 {
   text-align: center;
+  font-size: 52px;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  color: yellowgreen;
 }
 
 .leftRightDivHolder {
@@ -26,7 +80,7 @@ body {
 
 .leftDiv, .rightDiv {
   width: 50%;
-  height: 85vh;
+  height: 75vh;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   display: -webkit-box;
@@ -48,8 +102,8 @@ body {
 
 .leftDiv h2, .rightDiv h2 {
   display: none;
-  font-size: 32px;
-  color: gold;
+  font-size: 42px;
+  color: #525151;
 }
 
 .leftDiv a, .rightDiv a {
@@ -117,5 +171,22 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2em;
+  margin-left: 2.8rem;
+}
+
+.componentParent .formParent .sbmtBtn:hover, .componentParent form .sbmtBtn:hover {
+  background-color: gray;
+}
+
+.calcResultsParent h1 {
+  font-size: 200px;
+}
+
+.calcResultsParent h2 {
+  font-size: 72px;
+}
+
+.calcResultsParent h3 {
+  font-size: 22px;
 }
 /*# sourceMappingURL=App.css.map */
