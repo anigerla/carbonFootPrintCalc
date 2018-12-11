@@ -1,0 +1,86 @@
+[
+    {
+        "price_unit": "$/Cwt.",
+        "price_1997": "63.28",
+        "grams_co2e_per_serving": "978.3879000000001",
+        "serving_size": "4.0",
+        "grams_co2e_per_kcal": "1.8456666666666668",
+        "ss_unit": "ounce",
+        "price_per_serving": "0.22543500000000002",
+        "calories_per_serving": "372.0",
+        "category": "Meat",
+        "food": "BEEF"
+    },
+    {
+        "price_unit": "$/pound",
+        "price_1997": "0.3738",
+        "grams_co2e_per_serving": "285.4254669342213",
+        "serving_size": "114.0",
+        "grams_co2e_per_kcal": "0.8649256573764281",
+        "ss_unit": "g",
+        "price_per_serving": "0.11745903989062603",
+        "calories_per_serving": "264.0",
+        "category": "Meat",
+        "food": "CHICKEN"
+    },
+    {
+        "price_unit": "$/pound",
+        "price_1997": "0.712",
+        "grams_co2e_per_serving": "413.84033348075735",
+        "serving_size": "110.0",
+        "grams_co2e_per_kcal": "2.069201667403787",
+        "ss_unit": "grams",
+        "price_per_serving": "0.32585853029980894",
+        "calories_per_serving": "106.0",
+        "category": "Meat",
+        "food": "FISH"
+    },
+    {
+        "price_unit": "$/Cwt.",
+        "price_1997": "90.3",
+        "grams_co2e_per_serving": "1407.3968554984674",
+        "serving_size": "114.0",
+        "grams_co2e_per_kcal": "3.0883316578336273",
+        "ss_unit": "g",
+        "price_per_serving": "0.32428498974619063",
+        "calories_per_serving": "319.0",
+        "category": "Meat",
+        "food": "LAMB"
+    },
+    {
+        "price_unit": "Cents/Pound",
+        "price_1997": "23.39",
+        "grams_co2e_per_serving": "7.999587681119053",
+        "serving_size": "1.0",
+        "grams_co2e_per_kcal": "0.0695616320097309",
+        "ss_unit": "tbsp",
+        "price_per_serving": "0.005594117259523813",
+        "calories_per_serving": "115.0",
+        "category": "Oil",
+        "food": "LARD"
+    },
+    {
+        "price_unit": "Cents/Pound",
+        "price_1997": "84.6",
+        "grams_co2e_per_serving": "906.3224960050239",
+        "serving_size": "114.0",
+        "grams_co2e_per_kcal": "3.0515908956398112",
+        "ss_unit": "g",
+        "price_per_serving": "0.20883006820392255",
+        "calories_per_serving": "297.0",
+        "category": "Meat",
+        "food": "PORK"
+    },
+    {
+        "price_unit": "Cents/Pound",
+        "price_1997": "39.9",
+        "grams_co2e_per_serving": "310.86838124999997",
+        "serving_size": "4.0",
+        "grams_co2e_per_kcal": "1.836306818181818",
+        "ss_unit": "ounce",
+        "price_per_serving": "0.12792937499999998",
+        "calories_per_serving": "132.0",
+        "category": "Meat",
+        "food": "TURKEY"
+    },
+]

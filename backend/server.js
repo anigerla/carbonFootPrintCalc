@@ -27,27 +27,28 @@ app.use(bodyParser.json());
 //Body Parser code ends
 //middleware functions end
 //----------------------------------------------------------------------------------------------------
-//Outside API requests
-//POST request that receives CO2 data based on meat consumption
-// from an outside API using an axios GET request
-app.post('/meat/:meattype', (req, res) => {
-    const meatType = req.params.type;
 
-    axios.get(`https://opendata.socrata.com/resource/8nz9-yn2p.json?food=${meatType}`)
-        .then(response => {
-            res.json(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-})
+//GET request that fetches data on carbon impact of meat stored internally
+// app.get('/meat/:meattype', (req, res) => {
+//     const meatType = req.params.type;
+//         .then(response => {
+//             res.json(response.data);
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         });
+// })
+
+//Outside API requests
 //POST request that receives CO2 data based on flight distance
 // from an external API and holds it until a fetch request retrieves it
 // from a front-end
-app.post('/travel/:origin/:destination', (req, res) => {
-    const userOrigin = req.params.origin;
-    const userArrival = req.params.destination;
+app.post('/travel', (req, res) => {
+    const userOrigin = req.body.origin;
 
+    const userArrival = req.body.destination;
+    console.log(userArrival);
+    console.log(req.body)
    axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
         .then(response => {
             res.json(response.data);
@@ -55,7 +56,7 @@ app.post('/travel/:origin/:destination', (req, res) => {
         .catch(function (error) {
             console.log(error);
         });
-})
+    })
 
 //code to start the server
 const PORT = process.env.PORT || 8080;

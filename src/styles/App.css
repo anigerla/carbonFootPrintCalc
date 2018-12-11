@@ -67,7 +67,7 @@ body {
   font-size: 52px;
   margin-bottom: 0.5rem;
   margin-top: 0;
-  color: yellowgreen;
+  color: white;
 }
 
 .leftRightDivHolder {
@@ -126,6 +126,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .componentParent .formParent, .componentParent form {
@@ -144,6 +148,14 @@ body {
           align-items: center;
 }
 
+.componentParent .formParent .travelH2, .componentParent form .travelH2 {
+  font-size: 32px;
+}
+
+.componentParent .formParent .meatH2, .componentParent form .meatH2 {
+  color: white;
+}
+
 .componentParent .formParent .formChild, .componentParent form .formChild {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,10 +169,19 @@ body {
           align-items: flex-end;
 }
 
-.componentParent .formParent .formChild input, .componentParent form .formChild input {
+.componentParent .formParent .formChild .travelLabels, .componentParent form .formChild .travelLabels {
+  color: white;
+  font-size: 24px;
+}
+
+.componentParent .formParent .formChild input, .componentParent .formParent .formChild select, .componentParent form .formChild input, .componentParent form .formChild select {
   padding: 0.8rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
+}
+
+.componentParent .formParent .formChild select, .componentParent form .formChild select {
+  border-radius: 5%;
 }
 
 .componentParent .formParent .sbmtBtn, .componentParent form .sbmtBtn {
@@ -174,8 +195,27 @@ body {
   margin-left: 2.8rem;
 }
 
+.componentParent .formParent .meatBtn, .componentParent form .meatBtn {
+  margin-right: 2rem;
+}
+
 .componentParent .formParent .sbmtBtn:hover, .componentParent form .sbmtBtn:hover {
   background-color: gray;
+}
+
+.calcResultsParent {
+  background-image: url("/public/Assets/Images/cow.jpg");
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .calcResultsParent h1 {
@@ -184,9 +224,14 @@ body {
 
 .calcResultsParent h2 {
   font-size: 72px;
+  color: yellow;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .calcResultsParent h3 {
-  font-size: 22px;
+  font-size: 45px;
+  color: white;
+  margin-top: 0;
 }
 /*# sourceMappingURL=App.css.map */

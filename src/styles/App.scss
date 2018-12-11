@@ -65,7 +65,7 @@ body {
         font-size: 52px;
         margin-bottom: 0.5rem;
         margin-top: 0;
-        color: yellowgreen;
+        color: white;
     }
 }
 
@@ -88,9 +88,7 @@ body {
 .leftDiv h2, .rightDiv h2 {
     display: none;
     font-size: 42px;
-    // color: rgb(214, 76, 26);
     color: rgb(82, 81, 81);
-    //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px darkorange;
 }
 
 .leftDiv a, .rightDiv a {
@@ -105,16 +103,13 @@ body {
 .leftDiv:hover h2, .rightDiv:hover h2 {
     display: block;
 }
-
-// .k-button {
-//     height: 30px;
-// }
 //WelcomeScreen Component Styling Ends
 
 //Meat & Travel Components Styling Starts
 .componentParent     {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 
     & .formParent, form {
         display: flex;
@@ -122,15 +117,32 @@ body {
         justify-content: space-between;
         align-items: center;
 
+        & .travelH2 {
+            font-size: 32px;
+        }
+
+        & .meatH2 {
+            color: white;
+        }
+
         & .formChild {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
 
-            & input {
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            margin-left: 1rem;
+            & .travelLabels {
+                color: white;
+                font-size: 24px;
+            }
+
+            & input, select {
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+                margin-left: 1rem;
+            }
+
+            & select {
+                border-radius: 5%;
             }
         }
     
@@ -145,6 +157,10 @@ body {
             margin-left: 2.8rem;
         }
 
+        & .meatBtn {
+            margin-right: 2rem;
+        }
+
         & .sbmtBtn:hover {
             background-color: gray;
         }
@@ -153,14 +169,25 @@ body {
 
 //MeatCalculations Component Starts
 .calcResultsParent {
+    background-image: url('/public/Assets/Images/cow.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h1 {
         font-size: 200px;
     }
     h2 {
         font-size: 72px;
+        color: yellow;
+        margin-top: 0;
+        margin-bottom: 0; 
     }
-    h3{
-        font-size: 22px;
+    h3  {
+        font-size: 45px;
+        color: white;
+        margin-top: 0;
     }
 }
 

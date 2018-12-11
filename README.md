@@ -1,7 +1,7 @@
 Carbon Footprint Calculator
 
 Description
-This project 
+This project calculates amount of CO2 released based on a flight trip or amount of meat consumed.
 
 Dependencies:
     Front-end:

@@ -16,19 +16,31 @@ export default class Travel extends Component {
     }
   }
 
+hide = (e) => {
+
+  e.preventDefault();
+  this.setState({
+  hidden: !this.state.hidden,
+  })
+  setTimeout( () => {
+    this.sendTravelInfo(e);
+  }, 1000)
+}
+
 // onSubmit collects input data
   sendTravelInfo = (e) => {
-    e.preventDefault();
-    // setTimeout(function () {
-    //   window.location.href = `http://localhost:3000/travel`;
-    // }, 3000)
-    let uInput = e.target.uInput.value; 
-    let uInput2 = e.target.uInput2.value;
+    e.preventDefault(); 
+    let uInput = document.getElementById('uInput');
+    // let uInput = e.target.uInput.value;
+    
+    // let uInput2 = e.target.uInput2.value;
+    let uInput2 = document.getElementById('uInput2');
+    // console.log(uInput2.value); 
 
   //new object created that stores the user inputs
     let userInput = {
-      origin: uInput,
-      destination: uInput2
+      origin: uInput.value,
+      destination: uInput2.value
       }
     // console.log(userInput);
       
@@ -41,30 +53,18 @@ export default class Travel extends Component {
       };
     // console.log(init);
     
-    fetch(`http://localhost:8080/travel/:origin/:destination`, init)
+    fetch(`http://localhost:8080/travel`, init)
     .then((response) => {
     return response.json();
     })
     .then(data => {
       this.setState({
         flightData: data, 
-        // showBottom: true   
+        showBottom: true   
         })   
       console.log(data);         
       });
-
-  this.setState({
-    showBottom: true
-  })
 };
-
-//  hide = () => {
-    // this.sendTravelInfo;
-
-  //   this.setState({
-  //     hidden: !this.state.hidden
-  //   })
-  // }
 
   render() {
     return (
@@ -73,20 +73,21 @@ export default class Travel extends Component {
           <source src="/Assets/Videos/People Waiting.mp4" type="video/mp4" />
           <source src="/Assets/Videos/People Waiting.mp4" type="video/ogg" />
         </video>
-        <form onSubmit={this.sendTravelInfo}>
+        {/* <form onSubmit={this.sendTravelInfo}> */}
+        <form onSubmit={this.hide}>
           <div className="formParent">
-            <h2>Please, input your departure and destination:</h2>
+            <h2 className="travelH2">Please, input your departure and destination:</h2>
             <div className="formChild">
-              <label>From
-                <input type="text" name="uInput" className="uInput"></input>
+              <label className="travelLabels">From
+                <input type="text" name="uInput" className="uInput" id="uInput"></input>
               </label>
-              <label>To
-                <input type="text" name="uInput2" className="uInput2"></input>
+              <label className="travelLabels">To
+                <input type="text" name="uInput2" className="uInput2" id="uInput2"></input>
               </label>
             </div>
           </div>
           <div>
-            <ParticleEffectButton color={"#ff4d73"}
+            <ParticleEffectButton color={"#1e90ff"}
               direction="left"
               duration={800}
               easing="easeOutSine"
@@ -97,17 +98,18 @@ export default class Travel extends Component {
               style="fill"
               type="triangle"
               hidden={this.state.hidden}>
-              <button className="sbmtBtn" type="submit" onClick={this.hide}>Submit Here</button> 
+              <button className="sbmtBtn" type="submit">Submit Here</button> 
             </ParticleEffectButton>
           </div>
+          {/* onClick={this.hide} */}
         </form>
-
-        {this.showBottom && <div className="calcResultsParent">
-          <h1>{this.state.flightData.decisions.data.description}</h1>
-          <h2>tonnes of CO2 equivalent</h2>
-          <h3>will be emitted</h3>  
+        {this.state.showBottom && <div className="calcResultsParent">
+          <h1>{this.state.flightData.decisions.carbon.description}</h1>
+          <div>  
+            <h2>tonnes of CO2 equivalent</h2>
+            <h3>will be emitted</h3>
+          </div>    
         </div>}  
-
       </div>
     )
   }
