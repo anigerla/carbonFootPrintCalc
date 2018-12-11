@@ -28,33 +28,26 @@ app.use(bodyParser.json());
 //middleware functions end
 //----------------------------------------------------------------------------------------------------
 //Outside API requests
-//AXIOS GET request that receives CO2 data based on meat consumption
-const meat_API = `https://opendata.socrata.com/resource/8nz9-yn2p.json`;
-// axios.get('URL')
-//     .then(function (response) {
-//         console.log(response);
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
+//POST request that receives CO2 data based on meat consumption
+// from an outside API using an axios GET request
+app.post('/meat/:meattype', (req, res) => {
+    const meatType = req.params.type;
 
-//AXIOS GET request that receives CO2 data based on flight distance
-// let axiosRes = axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${uInput}&destination_airport=${uInput2}&timeframe=2018-01-01%2F2019-01-01`)
-//     .then(response => {
-//         res.json();
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
-
-//Internal fetch requests
-// let toInput, fromInput;
-
+    axios.get(`https://opendata.socrata.com/resource/8nz9-yn2p.json?food=${meatType}`)
+        .then(response => {
+            res.json(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+})
+//POST request that receives CO2 data based on flight distance
+// from an external API and holds it until a fetch request retrieves it
+// from a front-end
 app.post('/travel/:origin/:destination', (req, res) => {
     const userOrigin = req.params.origin;
     const userArrival = req.params.destination;
 
-    //divide userInput into departure and destination
    axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
         .then(response => {
             res.json(response.data);
@@ -62,15 +55,7 @@ app.post('/travel/:origin/:destination', (req, res) => {
         .catch(function (error) {
             console.log(error);
         });
-        
 })
-
-// app.post('/travel', (req, res) => {
-//     toInput = req.body.toInput;
-//     fromInput = req.body.fromInput;        
-//     res.redirect('/traveloutput');
-//     res.json(toInput, fromInput);
-// })
 
 //code to start the server
 const PORT = process.env.PORT || 8080;

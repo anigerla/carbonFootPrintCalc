@@ -5,7 +5,6 @@ import Travel from './components/Travel';
 import Meat from './components/Meat';
 import WelcomeScreen from './components/WelcomeScreen';
 import NavBar from './components/NavBar';
-import MeatCalculations from './components/MeatCalculations';
 
 class App extends Component {
   // state = {
@@ -80,7 +79,6 @@ class App extends Component {
             <Route path='/meat' exact component={Meat} />
             <Route path='/welcome' exact component={WelcomeScreen} />
             <Route path='/' exact render={() => <Redirect to='/welcome' component={WelcomeScreen} />} />
-            <Route path='/meatresults' exact component={MeatCalculations} />
           </Switch>
         </div>
       </Router>

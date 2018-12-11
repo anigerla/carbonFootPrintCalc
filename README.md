@@ -23,6 +23,14 @@ b6f47020-f813-11e8-aef4-c99c703c9eb6
 ---------------------------------------------------------------------
 Meat Consumption CO2 impact data
 https://opendata.socrata.com/dataset/Carbon-Emissions-per-Serving-and-per-Calorie/8nz9-yn2p
+
+API URL:
 https://opendata.socrata.com/resource/8nz9-yn2p.json
+
+API Keys:
+App Token
+z2dwkOBCilCofC2VBrBHIzt3s
+Secret Token
+WFhNQK5a0OI74YDTauYkWKOznjUgNVm1fCoB
 
 

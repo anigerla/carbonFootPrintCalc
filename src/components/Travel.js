@@ -20,7 +20,7 @@ export default class Travel extends Component {
   sendTravelInfo = (e) => {
     e.preventDefault();
     // setTimeout(function () {
-    //   window.location.href = "http://www.google.com";
+    //   window.location.href = `http://localhost:3000/travel`;
     // }, 3000)
     let uInput = e.target.uInput.value; 
     let uInput2 = e.target.uInput2.value;
@@ -39,7 +39,6 @@ export default class Travel extends Component {
         'content-type': 'application/json'
         }
       };
-
     // console.log(init);
     
     fetch(`http://localhost:8080/travel/:origin/:destination`, init)
@@ -49,14 +48,14 @@ export default class Travel extends Component {
     .then(data => {
       this.setState({
         flightData: data, 
-        showBottom: true   
+        // showBottom: true   
         })   
       console.log(data);         
       });
 
-  // this.setState({
-  //   showBottom: true
-  // })
+  this.setState({
+    showBottom: true
+  })
 };
 
 //  hide = () => {
