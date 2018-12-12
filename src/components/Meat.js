@@ -38,7 +38,7 @@ export default class Meat extends Component {
 
     fetch(`http://localhost:8080/meat`, init)
       .then((response) => {
-        return response.text();
+        return response.json();
       })
       .then(data => {
         this.setState({
@@ -90,11 +90,12 @@ export default class Meat extends Component {
           </div>
         </form>
         {this.state.showBottom && <div className="calcResultsParent">
-          <h2>{this.state.meatData.grams_co2e_per_serving}</h2>
+        {console.log(this.state)}
+          <h2>{Math.round(this.state.meatData.grams_co2e_per_serving)}</h2>
           <div>
-            <h2>tonnes of CO2 equivalent</h2>
+            <h2>grams of CO2e per serving</h2>
             <div className="resultsLastDiv">
-              <h3>will be emitted</h3>
+              <h3>have been emitted</h3>
               <button className="refreshBtn" onClick={this.refresh}>Refresh</button>
             </div>   
           </div>

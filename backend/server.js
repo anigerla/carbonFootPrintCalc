@@ -33,9 +33,13 @@ app.use(bodyParser.json());
 app.post('/meat', (req, res) => {
     const meatType = req.body.type;
     console.log(meatType);
-    if(meatType) {
-        res.json(meatData);
-    }
+    let foundMeat = meatData.find(meat => {
+        return (meat.food.toLowerCase() === meatType.toLowerCase() )}) 
+         res.json(foundMeat);
+
+    // }
+    // ))
+        
 })
 
 //Outside API requests
