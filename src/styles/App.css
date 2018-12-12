@@ -110,6 +110,11 @@ body {
   text-decoration: none;
 }
 
+.leftDiv span, .rightDiv span {
+  color: oldlace;
+  font-size: 42px;
+}
+
 .leftDiv:hover, .rightDiv:hover {
   background-color: rgba(250, 250, 250, 0.5);
   cursor: pointer;
@@ -117,6 +122,10 @@ body {
 
 .leftDiv:hover h2, .rightDiv:hover h2 {
   display: block;
+}
+
+.leftDiv:hover span, .rightDiv:hover span {
+  display: none;
 }
 
 .componentParent {
@@ -153,7 +162,7 @@ body {
 }
 
 .componentParent .formParent .meatH2, .componentParent form .meatH2 {
-  color: white;
+  font-size: 42px;
 }
 
 .componentParent .formParent .formChild, .componentParent form .formChild {
@@ -169,8 +178,7 @@ body {
           align-items: flex-end;
 }
 
-.componentParent .formParent .formChild .travelLabels, .componentParent form .formChild .travelLabels {
-  color: white;
+.componentParent .formParent .formChild .travelLabels, .componentParent .formParent .formChild .meatLabels, .componentParent form .formChild .travelLabels, .componentParent form .formChild .meatLabels {
   font-size: 24px;
 }
 
@@ -178,10 +186,7 @@ body {
   padding: 0.8rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
-}
-
-.componentParent .formParent .formChild select, .componentParent form .formChild select {
-  border-radius: 5%;
+  font-size: 18px;
 }
 
 .componentParent .formParent .sbmtBtn, .componentParent form .sbmtBtn {
@@ -219,7 +224,7 @@ body {
 }
 
 .calcResultsParent h1 {
-  font-size: 200px;
+  font-size: 150px;
 }
 
 .calcResultsParent h2 {
@@ -233,5 +238,29 @@ body {
   font-size: 45px;
   color: white;
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.resultsLastDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.resultsLastDiv .refreshBtn {
+  background: fuchsia;
+  color: white;
+  padding: 1.5rem 3rem;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: 2.8rem;
 }
 /*# sourceMappingURL=App.css.map */

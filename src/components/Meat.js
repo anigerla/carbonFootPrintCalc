@@ -5,8 +5,8 @@ export default class Meat extends Component {
   //button effect and onSubmit function states initialization
   state = {
     hidden: false,
-    showBottom: false
-    //meat API 
+    showBottom: false,
+    meatData: []
   }
 
   hide = (e) => {
@@ -15,54 +15,47 @@ export default class Meat extends Component {
       hidden: !this.state.hidden,
     })
     setTimeout(() => {
-      // this.sendTravelInfo(e);
-      this.setState({
-        showBottom: true
-      })
+      this.sendMeatInfo(e);
     }, 1000)
-
-    // this.setState({
-    // showBottom: true
-    // })
   }
 
   // onSubmit collects input data
-  // sendMeatInfo = (e) => {
-    // let uInput = document.getElementById('meatType');
-    // let uInput2 = e.target.uInput2.value;
+  sendMeatInfo = (e) => {
+    let uInput = document.getElementById('uInput');
 
     //new object created that stores the user inputs
-    // let userInput = {
-    //   origin: uInput,
-    //   destination: uInput2
-    // }
-    // console.log(userInput);
+    let userInput = {
+        type: uInput.value
+    }
 
-    // const init = {
-    //   body: JSON.stringify(userInput),
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   }
-    // };
-    // console.log(init);
+    const init = {
+      body: JSON.stringify(userInput),
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      }
+    };
 
-    // fetch(`http://localhost:8080/meat/:meattype`, init)
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then(data => {
-    //     this.setState({
-    //       meatData: data,
-    //       // showBottom: true   
-    //     })
-    //     console.log(data);
-    //   });
+    fetch(`http://localhost:8080/meat`, init)
+      .then((response) => {
+        return response.text();
+      })
+      .then(data => {
+        this.setState({
+          meatData: data,
+          showBottom: true   
+          })
+        console.log(data);
+      });
+  };
 
-    // this.setState({
-    //   showBottom: true
-    // })
-  // };
+  refresh = (e) => {
+    this.setState({
+      hidden: false,
+      showBottom: false,
+      hideForm: true
+    })
+  }
 
   render() {
     return (
@@ -71,25 +64,13 @@ export default class Meat extends Component {
           <source src="/Assets/Videos/Pexels Videos 4947.mp4" type="video/mp4" />
           <source src="/Assets/Videos/Pexels Videos 4947.mp4" type="video/ogg" />
         </video>
-        {/* <form onSubmit={this.sendMeatInfo}> */}
-        <form>
+        <form onSubmit={this.hide}>
           <div className="formParent">
-            {/* <h2>Please, input your daily meat consumption:</h2> */}
-            <h2 className="travelH2 meatH2">Please, choose the type of meat:</h2>
+            <h2 className="travelH2 meatH2">What type of meat did you eat today?</h2>
             <div className="formChild">
-              {/* <label>In grams
-                <input type="text" name="uInput"></input>
+              <label className="meatLabels">Type of Meat
+                <input type="text" name="uInput" placeholder="beef, pork, turkey, chicken, lamb" className="uInput" id="uInput"></input>
               </label>
-              <label>Or how many portions
-                <input type="text" name="uInput2"></input>
-              </label> */}
-              <select name="meatType" id="meatType">
-                <option value="beef">Beef</option>
-                <option value="chicken">Chicken</option>
-                <option value="lamb">Lamb</option>
-                <option value="pork">Pork</option>
-                <option value="turkey">Turkey</option>
-              </select>
              </div> 
           </div>
           <div className="meatBtn">
@@ -104,16 +85,19 @@ export default class Meat extends Component {
               style="fill"
               type="triangle"
               hidden={this.state.hidden}>
-              <button className="sbmtBtn" type="submit" onClick={this.hide}>Submit Here</button>
+              <button className="sbmtBtn" type="submit">Submit Here</button>
             </ParticleEffectButton>
           </div>
         </form>
         {this.state.showBottom && <div className="calcResultsParent">
-          <h2>Still under construction</h2>
-          {/* <div>
+          <h2>{this.state.meatData.grams_co2e_per_serving}</h2>
+          <div>
             <h2>tonnes of CO2 equivalent</h2>
-            <h3>will be emitted</h3>
-          </div> */}
+            <div className="resultsLastDiv">
+              <h3>will be emitted</h3>
+              <button className="refreshBtn" onClick={this.refresh}>Refresh</button>
+            </div>   
+          </div>
         </div>}  
       </div>
     )

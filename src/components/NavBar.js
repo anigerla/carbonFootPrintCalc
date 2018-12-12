@@ -5,6 +5,7 @@ export default class NavBar extends Component {
   render() {
 
     //typing effect animation on the logo code starts
+    //Source: Jake Maldonado
     const animateHome = (i) => {
       this.alreadyRunning = true;
       let navText = 'b';
@@ -22,16 +23,6 @@ export default class NavBar extends Component {
             document.getElementById('nav-home').innerHTML = wordArr.length ? navText + '|' : navText;
             if (!wordArr.length) {
               clearInterval(writeWordId);
-              // setTimeout(() => {
-              //   let removeWordId = setInterval(() => {
-              //     let elem = document.getElementById('nav-home');
-              //     elem.innerHTML = elem.innerHTML.slice(0, elem.innerHTML.length - 2) + '|';
-              //     if (elem.innerHTML[elem.innerHTML.length - 2] === 'g') {
-              //       clearInterval(removeWordId);
-              //       animateHome(i + 1 === words.length ? 0 : i + 1);
-              //     }
-              //   }, 200);
-              // }, 1000);
             }
           }, 200);
         }

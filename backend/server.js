@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const meatData = require('./meatData');
 //install body parser
 
 // displays html code on the page
@@ -27,17 +28,15 @@ app.use(bodyParser.json());
 //Body Parser code ends
 //middleware functions end
 //----------------------------------------------------------------------------------------------------
-
-//GET request that fetches data on carbon impact of meat stored internally
-// app.get('/meat/:meattype', (req, res) => {
-//     const meatType = req.params.type;
-//         .then(response => {
-//             res.json(response.data);
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-// })
+//POST request that fetches data on carbon impact of meat stored internally
+//incomplete
+app.post('/meat', (req, res) => {
+    const meatType = req.body.type;
+    console.log(meatType);
+    if(meatType) {
+        res.json(meatData);
+    }
+})
 
 //Outside API requests
 //POST request that receives CO2 data based on flight distance
@@ -45,10 +44,7 @@ app.use(bodyParser.json());
 // from a front-end
 app.post('/travel', (req, res) => {
     const userOrigin = req.body.origin;
-
     const userArrival = req.body.destination;
-    console.log(userArrival);
-    console.log(req.body)
    axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
         .then(response => {
             res.json(response.data);
