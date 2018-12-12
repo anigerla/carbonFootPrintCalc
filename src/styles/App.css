@@ -163,6 +163,7 @@ body {
 
 .componentParent .formParent .meatH2, .componentParent form .meatH2 {
   font-size: 42px;
+  color: white;
 }
 
 .componentParent .formParent .formChild, .componentParent form .formChild {

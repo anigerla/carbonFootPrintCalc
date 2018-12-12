@@ -47,6 +47,9 @@ export default class Meat extends Component {
           })
         console.log(data);
       });
+
+    let uInputClear = " ";
+    document.getElementById('uInput').value = uInputClear;
   };
 
   refresh = (e) => {

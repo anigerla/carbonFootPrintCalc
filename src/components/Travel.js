@@ -56,6 +56,11 @@ export default class Travel extends Component {
           showBottom: true,
           })            
         });
+
+    let uInputClear = " ";
+    let uInputClear2 = " ";
+    document.getElementById('uInput').value = uInputClear;
+    document.getElementById('uInput2').value = uInputClear;
   };
 
   refresh = (e) => {
