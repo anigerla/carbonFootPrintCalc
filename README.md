@@ -15,8 +15,13 @@ Dependencies:
 
 List of APIs used:
 
-Flight CO2 impact data
+CO2 impact data
 ---------------------------------------------------------------------
+Flight CO2 impact data source:
+http://impact.brighterplanet.com/models/flight
+API URL:
+http://impact.brighterplanet.com/flights?timeframe=2018-01-01%2F2019-01-01
+
 Meat Consumption CO2 impact data
 https://opendata.socrata.com/dataset/Carbon-Emissions-per-Serving-and-per-Calorie/8nz9-yn2p
 
