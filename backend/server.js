@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
+dotenv.config();
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const meatData = require('./meatData');
@@ -28,18 +29,14 @@ app.use(bodyParser.json());
 //Body Parser code ends
 //middleware functions end
 //----------------------------------------------------------------------------------------------------
-//POST request that fetches data on carbon impact of meat stored internally
-//incomplete
+// POST request that fetches data on carbon impact of meat stored internally
+// incomplete
 app.post('/meat', (req, res) => {
     const meatType = req.body.type;
     console.log(meatType);
     let foundMeat = meatData.find(meat => {
         return (meat.food.toLowerCase() === meatType.toLowerCase() )}) 
-         res.json(foundMeat);
-
-    // }
-    // ))
-        
+         res.json(foundMeat);       
 })
 
 //Outside API requests
@@ -49,7 +46,7 @@ app.post('/meat', (req, res) => {
 app.post('/travel', (req, res) => {
     const userOrigin = req.body.origin;
     const userArrival = req.body.destination;
-   axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
+    axios.get(`http://impact.brighterplanet.com/flights.json?origin_airport=${userOrigin}&destination_airport=${userArrival}&timeframe=2018-01-01%2F2019-01-01`)
         .then(response => {
             res.json(response.data);
         })

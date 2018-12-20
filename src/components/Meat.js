@@ -6,6 +6,7 @@ export default class Meat extends Component {
   state = {
     hidden: false,
     showBottom: false,
+    hideForm: true,
     meatData: []
   }
 
@@ -45,7 +46,6 @@ export default class Meat extends Component {
           meatData: data,
           showBottom: true   
           })
-        console.log(data);
       });
 
     let uInputClear = " ";
@@ -67,7 +67,7 @@ export default class Meat extends Component {
           <source src="/Assets/Videos/Pexels Videos 4947.mp4" type="video/mp4" />
           <source src="/Assets/Videos/Pexels Videos 4947.mp4" type="video/ogg" />
         </video>
-        <form onSubmit={this.hide}>
+        <form onSubmit={this.hide} hideForm={this.state.hideform}>
           <div className="formParent">
             <h2 className="travelH2 meatH2">What type of meat did you eat today?</h2>
             <div className="formChild">
@@ -93,7 +93,6 @@ export default class Meat extends Component {
           </div>
         </form>
         {this.state.showBottom && <div className="calcResultsParent">
-        {console.log(this.state)}
           <h2>{Math.round(this.state.meatData.grams_co2e_per_serving)}</h2>
           <div>
             <h2>grams of CO2e per serving</h2>

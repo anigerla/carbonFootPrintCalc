@@ -60,7 +60,7 @@ export default class Travel extends Component {
     let uInputClear = " ";
     let uInputClear2 = " ";
     document.getElementById('uInput').value = uInputClear;
-    document.getElementById('uInput2').value = uInputClear;
+    document.getElementById('uInput2').value = uInputClear2;
   };
 
   refresh = (e) => {
@@ -109,7 +109,7 @@ export default class Travel extends Component {
         {this.state.showBottom && <div className="calcResultsParent">
           <h1>{this.state.flightData.decisions.carbon.description}</h1>
           <div className="calcResultsChild">  
-            <h2>tonnes of CO2 equivalent</h2>
+            <h2>of CO2 equivalent</h2>
             <div className="resultsLastDiv">  
               <h3>will be emitted</h3>
               <button className="refreshBtn" onClick={this.refresh}>Refresh</button>

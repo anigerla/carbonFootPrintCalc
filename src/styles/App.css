@@ -183,6 +183,10 @@ body {
   font-size: 24px;
 }
 
+.componentParent .formParent .formChild .meatLabels, .componentParent form .formChild .meatLabels {
+  color: white;
+}
+
 .componentParent .formParent .formChild input, .componentParent .formParent .formChild select, .componentParent form .formChild input, .componentParent form .formChild select {
   padding: 0.8rem;
   margin-bottom: 1rem;
